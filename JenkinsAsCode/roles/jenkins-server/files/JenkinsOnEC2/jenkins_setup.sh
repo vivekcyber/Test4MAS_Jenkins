@@ -14,3 +14,13 @@ yum install jenkins -y
 systemctl daemon-reload
 systemctl enable jenkins
 systemctl start jenkins
+
+# Add Jenkins user to docker group to enable Jenkins pipeline to use docker command
+
+sudo groupadd docker
+sudo gpasswd -a jenkins docker
+
+# restart jenkins and docker to reflect above user addition to group
+
+systemctl restat docker
+systemctl restart jenkins
