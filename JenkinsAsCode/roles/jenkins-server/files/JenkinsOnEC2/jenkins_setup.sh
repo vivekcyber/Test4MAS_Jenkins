@@ -17,10 +17,14 @@ systemctl start jenkins
 
 # Add Jenkins user to docker group to enable Jenkins pipeline to use docker command
 
-sudo groupadd docker
-sudo gpasswd -a jenkins docker
+groupadd docker
+gpasswd -a jenkins docker
 
 # restart jenkins and docker to reflect above user addition to group
 
 systemctl restat docker
 systemctl restart jenkins
+
+# Installation of trivy - Container image scannign tool
+
+rpm -ivh https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.rpm
