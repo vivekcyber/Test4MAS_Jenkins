@@ -1,0 +1,6 @@
+- hosts: workernode
+  gather_facts: no
+  tasks:
+    - name: Install jenkins
+      include_role:
+        name: jenkins-server

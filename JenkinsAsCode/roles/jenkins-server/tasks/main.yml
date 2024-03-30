@@ -1,0 +1,13 @@
+---
+# tasks file for jenkins-server
+
+- name: Copy the Jenkins yaml fiels to server
+  copy: src=./roles/jenkins-server/files/ dest=/home/centos/ mode=755
+
+- name: Apply kubectl command to setup Jenkins as container
+  shell: 
+   cmd: |
+    kubectl apply -f /home/centos/namespace.yaml --kubeconfig=/home/centos/kubeconfig.conf
+    kubectl apply -f /home/centos/serviceaccount.yaml --kubeconfig=/home/centos/kubeconfig.conf
+    kubectl apply -f /home/centos/deployment.yaml --kubeconfig=/home/centos/kubeconfig.conf
+    kubectl apply -f /home/centos/service.yaml --kubeconfig=/home/centos/kubeconfig.conf
