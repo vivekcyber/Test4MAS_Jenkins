@@ -2,7 +2,7 @@
 #Inventory file of Kubernetes clsuter nodes
 masternode:
   hosts:
-   18.141.217.244
+   13.214.188.93
 workernode:
   hosts:
-   18.142.105.73
+   3.1.23.209
